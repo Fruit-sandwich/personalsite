@@ -1,0 +1,209 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    background-color: var(--theme-bg, #121214);
+    color: var(--theme-text, #f4f4f5);
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    overflow-x: hidden;
+    transition: background-color 0.4s ease, color 0.4s ease;
+  }
+}
+
+/* ============================================================
+   VARIABLE FONTS CONFIGURATION (Roboto Flex)
+   Supports full axes: wght (100-1000), wdth (25-151), slnt (-10..0), opsz (8..144)
+   ============================================================ */
+
+.font-variable-title {
+  font-family: 'Roboto Flex', sans-serif;
+  font-style: italic;
+  font-variation-settings: 'wght' 120, 'wdth' 95, 'slnt' -8;
+  transition: font-variation-settings 0.25s cubic-bezier(0.2, 0.9, 0.3, 1),
+              text-shadow 0.25s ease,
+              color 0.25s ease,
+              letter-spacing 0.25s ease;
+}
+
+.font-variable-title:hover {
+  font-variation-settings: 'wght' 950, 'wdth' 130, 'slnt' -10;
+  color: #ffffff;
+  text-shadow: 0px 0px 24px rgba(255, 255, 255, 0.95), 0px 0px 48px var(--theme-accent, #8fff00);
+}
+
+.font-variable-heading {
+  font-family: 'Roboto Flex', sans-serif;
+  font-style: italic;
+  font-variation-settings: 'wght' 500, 'wdth' 100, 'slnt' -6;
+  transition: font-variation-settings 0.22s cubic-bezier(0.2, 0.9, 0.3, 1),
+              color 0.22s ease,
+              text-shadow 0.22s ease;
+}
+
+.font-variable-heading:hover {
+  font-variation-settings: 'wght' 900, 'wdth' 125, 'slnt' -10;
+}
+
+.font-variable-link {
+  font-family: 'Roboto Flex', sans-serif;
+  font-variation-settings: 'wght' 320, 'wdth' 95, 'slnt' 0;
+  transition: font-variation-settings 0.2s cubic-bezier(0.2, 0.9, 0.3, 1),
+              color 0.2s ease,
+              text-shadow 0.2s ease;
+  display: inline-block;
+}
+
+.font-variable-link:hover {
+  font-style: italic;
+  font-variation-settings: 'wght' 950, 'wdth' 130, 'slnt' -8;
+  color: var(--theme-accent-secondary, #ff0ae4) !important;
+  text-shadow: 0px 0px 14px var(--theme-accent-secondary, #ff0ae4);
+}
+
+.font-variable-bio-link {
+  font-family: 'Roboto Flex', sans-serif;
+  font-variation-settings: 'wght' 450, 'wdth' 100, 'slnt' 0;
+  transition: font-variation-settings 0.2s cubic-bezier(0.2, 0.9, 0.3, 1),
+              color 0.2s ease,
+              text-shadow 0.2s ease;
+}
+
+.font-variable-bio-link:hover {
+  font-style: italic;
+  font-variation-settings: 'wght' 950, 'wdth' 125, 'slnt' -8;
+  color: var(--theme-accent-tertiary, #ffed00) !important;
+  text-shadow: 0px 0px 14px var(--theme-accent-tertiary, #ffed00);
+}
+
+.font-terminal {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+/* Quickshell floating dock & glass styles */
+.quickshell-dock {
+  background: var(--theme-bar-bg, #151518);
+  border: 1px solid var(--theme-border, rgba(143, 255, 0, 0.25));
+  box-shadow: 0 10px 35px -5px rgba(0, 0, 0, 0.65), 0 0 20px -3px var(--theme-glow, rgba(143, 255, 0, 0.15));
+}
+
+.quickshell-pill {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  transition: all 0.2s ease;
+}
+
+.quickshell-pill:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--theme-accent, #8fff00);
+}
+
+/* SVG HUD Animations */
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes spinReverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+@keyframes pulseHud {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.02); }
+}
+
+.animate-spin-slow {
+  animation: spinSlow 30s linear infinite;
+}
+
+.animate-spin-reverse {
+  animation: spinReverse 20s linear infinite;
+}
+
+.animate-pulse-hud {
+  animation: pulseHud 4s ease-in-out infinite;
+}
+
+@keyframes terminalBlink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+.animate-terminal-blink {
+  animation: terminalBlink 1s infinite;
+}
+
+/* ============================================================
+   SURGICAL ANIMATION: #thefutureisnow SVG PATH
+   ============================================================ */
+@keyframes futureDashFlow {
+  0% {
+    stroke-dashoffset: 12.8046;
+  }
+  100% {
+    stroke-dashoffset: -31.46655;
+  }
+}
+
+@keyframes futureNeonPulse {
+  0%, 100% {
+    stroke: #66f91c;
+    filter: drop-shadow(0 0 0.5px rgba(102, 249, 28, 0.7));
+    stroke-opacity: 0.85;
+  }
+  50% {
+    stroke: #9eff4d;
+    filter: drop-shadow(0 0 2px rgba(158, 255, 77, 1));
+    stroke-opacity: 1;
+  }
+}
+
+#thefutureisnow {
+  animation: futureDashFlow 3.6s linear infinite, futureNeonPulse 2.8s ease-in-out infinite !important;
+  will-change: stroke-dashoffset, filter;
+  cursor: pointer;
+  /* Allow mouse events across the entire fill area of the letter shapes, not just the hairline stroke */
+  pointer-events: all !important;
+  fill: rgba(0, 0, 0, 0.001) !important;
+  transition: stroke 0.3s ease, filter 0.3s ease, fill 0.3s ease;
+}
+
+#thefutureisnow:hover {
+  stroke: #baff7a !important;
+  fill: rgba(102, 249, 28, 0.07) !important;
+  filter: drop-shadow(0 0 4px #66f91c) drop-shadow(0 0 8px rgba(102, 249, 28, 0.8)) !important;
+  animation-duration: 1.8s, 1.4s !important;
+}
+
+/* ============================================================
+   HOODIE HOVER COLOR INTERACTION (#hoodie_col)
+   Target the SVG object with ID hoodie_col and transition its
+   color dynamically on mouse hover with smooth luminescence.
+   ============================================================ */
+svg#svg1 {
+  overflow: visible !important;
+}
+
+#hoodie_col {
+  cursor: pointer;
+  transition: fill 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.35s ease,
+              opacity 0.35s ease;
+  will-change: fill, filter;
+}
+
+#hoodie_col:hover {
+  fill: var(--hoodie-hover-color, var(--theme-accent, #8fff00)) !important;
+  /* Ultra-subtle, tight glow that doesn't blow out or reveal rectangular frame edges */
+  filter: drop-shadow(0 0 4px var(--theme-glow, rgba(143, 255, 0, 0.3))) !important;
+}
+
+/* Ensure overlying shading/highlight layers do not obstruct hoodie mouse events */
+#shadow1,
+#shadow2,
+#shadow3,
+#highlight2 {
+  pointer-events: none;
+}
+

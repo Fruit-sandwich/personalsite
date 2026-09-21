@@ -1,0 +1,6 @@
+{
+  "name": "Dennis Mabuka - Personal Website",
+  "description": "Personal portfolio website of East African digital artist Dennis Mabuka with responsive hero SVG portrait, bio, recent projects, and content editor with Gemini intelligence and audio transcription.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
