@@ -24,9 +24,11 @@ export const HeroPortrait: React.FC<HeroPortraitProps> = ({ currentTheme, classN
   ];
   const activeHoodieHoverColor = hoodieColors[hoodieColorIndex % hoodieColors.length];
 
+  const portraitUrl = `${import.meta.env.BASE_URL || "/"}portrait.svg`.replace(/\/\//g, "/");
+
   useEffect(() => {
     let isMounted = true;
-    fetch("/portrait.svg")
+    fetch(portraitUrl)
       .then((res) => {
         if (!res.ok) throw new Error("Failed to load SVG");
         return res.text();
@@ -158,7 +160,7 @@ export const HeroPortrait: React.FC<HeroPortraitProps> = ({ currentTheme, classN
         ) : (
           <img
             id="hero-vector-portrait"
-            src="/portrait.svg"
+            src={portraitUrl}
             alt="Dennis Mabuka - Self Portrait Vector Artwork"
             className="w-full h-auto object-contain mx-auto drop-shadow-[0_20px_40px_rgba(0,0,0,0.7)] transition-all duration-500"
             loading="eager"
